@@ -1,0 +1,21 @@
+{
+  "$ref": "#/definitions/SubtractDto",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "SubtractDto": {
+      "additionalProperties": false,
+      "properties": {
+        "numberArray": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "numberArray"
+      ],
+      "type": "object"
+    }
+  }
+}

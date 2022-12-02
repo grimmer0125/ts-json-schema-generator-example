@@ -1,0 +1,16 @@
+{
+  "name": "ts-json-schema-generator-example",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "npm run gen-json-schema",
+    "gen-json-schema": "ts-json-schema-generator --path src/**/*.dto.ts --no-type-check --type \"*\" -o json.schema"
+  },
+  "dependencies": {
+    "ts-json-schema-generator": "^1.1.2"
+  },
+  "devDependencies": {}
+}
