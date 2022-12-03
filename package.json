@@ -7,10 +7,17 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "npm run gen-json-schema",
-    "gen-json-schema": "ts-json-schema-generator --path src/**/*.dto.ts --no-type-check --type \"*\" -o json.schema"
+    "gen-json-schema": "ts-json-schema-generator --path src/*.dto.ts -o json.schema",
+    "gen-json-schema2": "ts-json-schema-generator",
+    "gen-json-schema3": "./node_modules/.bin/ts-json-schema-generator --path 'src/*.dto.ts' -o json.schema",
+    "test-commander-js": "node test_commander.js --path src/*.dto.ts",
+    "test-commander-js2": "node test_commander.js",
+    "test-commander-tsnode": "ts-node test_commander_tsnode.ts --path src/*.dto.ts",
+    "test-commander-tsnode2": "ts-node test_commander_tsnode.ts"
   },
   "dependencies": {
-    "ts-json-schema-generator": "^1.1.2"
-  },
-  "devDependencies": {}
+    "commander": "^9.4.1",
+    "ts-json-schema-generator": "^1.1.2",
+    "ts-node": "^10.9.1"
+  }
 }
