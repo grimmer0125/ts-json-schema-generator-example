@@ -57,7 +57,7 @@ start to test commander in pure js mode
 ✨  Done in 0.92s.
 ```
 
-The below is my environment. I guess this issue is due to the npm design and will not only happen on my environment. 
+The below is verified in my macOS environment shown below and Node.js Docker (Debian Linux w/ node v19.2.0). Therefore this issue is due to the npm design. 
 - macOS: 12.4
 - shell: zsh 5.8.1
 - node: v16.13.1
