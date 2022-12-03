@@ -35,11 +35,34 @@ o:
 - (npm script) `"test-commander-js2": "node test_commander.js"`
 - (test_commander.sh) `yarn test-commander-js2 --path 'src/*.dto.ts'`
 
-### conclusion: 1. commander has some issue when directly being used in npm script (at least in my environment) 2. defining ts-json-schema-generator module (w/o args) as a npm script does not work in npm but work in yarn
 
-my environment :
-macOS: 12.4
-shell: zsh 5.8.1
-node: v16.13.1
+### [conclusion1: commander/npm issue] when using `ts-json-schema-generator` (w/o relative path) with the cli argument `src/*.dto.ts` in npm script. npm script will interpret as the program arguments and automatically converted to multiple file names. In this repo example, it will be `src/main.dto.ts` & `src/main2.dto.ts`. But commander will only use the first found out file as the source files. The workaround is to use the full relative path `./node_modules/.bin/ts-json-schema-generator` with cli arguments in npm script.
+
+ref (`test_commander.js`): 
+```
+start to test commander in pure js mode
+{
+  programArgs: [
+    '/Users/grimmer/.nvm/versions/node/v16.13.1/bin/node',
+    '/Users/grimmer/git/ts-json-schema-generator-example/test_commander.js',
+    '--path',
+    'src/main.dto.ts',
+    'src/main2.dto.ts',
+    '-o',
+    'json.schema'
+  ]
+}
+{ args: { path: 'src/main.dto.ts', out: 'json.schema' } }
+✨  Done in 0.92s.
+```
+
+The below is my environment. I guess this issue is due to the npm design and will not only happen on my environment. 
+- macOS: 12.4
+- shell: zsh 5.8.1
+- node: v16.13.1
+
+
+### [conclusion2: another npm issue] defining ts-json-schema-generator module (w/o args) as a npm script does not work in npm but work in yarn
+
 
 
