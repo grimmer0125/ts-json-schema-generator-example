@@ -21,13 +21,14 @@ yarn:
 npm
 1. x: (npm script, adopted by my another project) `"gen-json-schema": "ts-json-schema-generator --path src/*.dto.ts -o json.schema"`. only `main.dto.ts` 
 2. x: (npm script) `npm run gen-json-schema2 --path 'src/*.dto.ts' -o json.schema`. cli's commander `args.path: undefined`. **yarn works in this case.**
-3. o: (npm script) `./node_modules/.bin/ts-json-schema-generator --path 'src/*.dto.ts' -o json.schema`
-4. o: 
-  - (npm script) `"gen-json-schema3": "./node_modules/.bin/ts-json-schema-generator --path 'src/*.dto.ts' -o json.schema"`
-  - `npm run gen-json-schema3`
-5. o: [Programmatic Usage](https://github.com/vega/ts-json-schema-generator#programmatic-usage) (program_usage.js)
+3. x: (npm script) `./node_modules/.bin/ts-json-schema-generator --path src/*.dto.ts -o json.schema`. only `main.dto.ts` 
+4. o: [Programmatic Usage](https://github.com/vega/ts-json-schema-generator#programmatic-usage) (program_usage.js)
 
-### commander tests 
+
+**update:** `"gen-json-schema4": "ts-json-schema-generator --path 'src/*.dto.ts' -o json.schema"` works in yarn/npm.
+
+
+### commander tests (please see above update)
 
 x: 
 1. (npm script) "test-commander-js": "node test_commander.js --path src/*.dto.ts",
@@ -37,9 +38,10 @@ o:
 - (npm script) `"test-commander-js2": "node test_commander.js"`
 - (test_commander.sh) `yarn test-commander-js2 --path 'src/*.dto.ts'`
 
-### [conclusion1: commander/npm issue] when using `ts-json-schema-generator` (w/o relative path) with the cli argument `src/*.dto.ts` in npm script. npm script will interpret as the program arguments and automatically converted to multiple file names. In this repo example, it will be `src/main.dto.ts` & `src/main2.dto.ts`. But commander will only use the first found out file as the source files. The workaround is to use the full relative path `./node_modules/.bin/ts-json-schema-generator` with cli arguments in npm script.
+### [conclusion1: commander/npm issue] when using `ts-json-schema-generator` (w/o relative path) with the cli argument `src/*.dto.ts` in npm script. npm script will interpret as the program arguments and automatically converted to multiple file names. In this repo example, it will be `src/main.dto.ts` & `src/main2.dto.ts`. But commander will only use the first found out file as the source files. **update: using single quotation `'src/*.dto.ts'` in npm script works. See above gen-json-schema4. ** 
 
-ref (`test_commander.js`): 
+ref (`test_commander.js` which uses npm script `""node test_commander.js --path src/*.dto.ts -o json.schema"`,
+): 
 ```
 start to test commander in pure js mode
 {
