@@ -4,7 +4,7 @@ ts-json-schema-generator: https://github.com/vega/ts-json-schema-generator
 
 ## ts-json-schema-generator usage notes 
 
-in `src/``, there are main.dto.ts (MyNestedObject & MyObject interfaces) & main2.dto.ts (MyNestedObject2 & MyObject2 interfaces)
+in `src/`, there are main.dto.ts (MyNestedObject & MyObject interfaces) & main2.dto.ts (MyNestedObject2 & MyObject2 interfaces)
 
 Target: see these four converted definitions in `json.schema`.
 
