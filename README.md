@@ -1,12 +1,14 @@
 # ts-json-schema-generator-example
 
+ts-json-schema-generator: https://github.com/vega/ts-json-schema-generator
+
 ## ts-json-schema-generator usage notes 
 
-in `src/``, there are main.dto.ts (MyNestedObject & MyObject interfaces) & main2.dto.ts (MyNestedObject2 & MyObject2 interfaces)
+in `src/`, there are main.dto.ts (MyNestedObject & MyObject interfaces) & main2.dto.ts (MyNestedObject2 & MyObject2 interfaces)
 
 Target: see these four converted definitions in `json.schema`.
 
-### ts-json-schema-generator tests (its CLI is using commander)
+### ts-json-schema-generator tests (its CLI is using [commander](https://www.npmjs.com/package/commander))
 
 x: not work. o: work
 
@@ -34,7 +36,6 @@ x:
 o:
 - (npm script) `"test-commander-js2": "node test_commander.js"`
 - (test_commander.sh) `yarn test-commander-js2 --path 'src/*.dto.ts'`
-
 
 ### [conclusion1: commander/npm issue] when using `ts-json-schema-generator` (w/o relative path) with the cli argument `src/*.dto.ts` in npm script. npm script will interpret as the program arguments and automatically converted to multiple file names. In this repo example, it will be `src/main.dto.ts` & `src/main2.dto.ts`. But commander will only use the first found out file as the source files. The workaround is to use the full relative path `./node_modules/.bin/ts-json-schema-generator` with cli arguments in npm script.
 
