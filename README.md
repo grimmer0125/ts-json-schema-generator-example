@@ -1,12 +1,14 @@
 # ts-json-schema-generator-example
 
+ts-json-schema-generator: https://github.com/vega/ts-json-schema-generator
+
 ## ts-json-schema-generator usage notes 
 
 in `src/``, there are main.dto.ts (MyNestedObject & MyObject interfaces) & main2.dto.ts (MyNestedObject2 & MyObject2 interfaces)
 
 Target: see these four converted definitions in `json.schema`.
 
-### ts-json-schema-generator tests (its CLI is using commander)
+### ts-json-schema-generator tests (its CLI is using [commander](https://www.npmjs.com/package/commander))
 
 x: not work. o: work
 
@@ -38,8 +40,8 @@ o:
 ### conclusion: 1. commander has some issue when directly being used in npm script (at least in my environment) 2. defining ts-json-schema-generator module (w/o args) as a npm script does not work in npm but work in yarn
 
 my environment :
-macOS: 12.4
-shell: zsh 5.8.1
-node: v16.13.1
+- macOS: 12.4
+- shell: zsh 5.8.1
+- node: v16.13.1
 
 
