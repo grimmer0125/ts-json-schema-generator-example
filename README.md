@@ -37,7 +37,7 @@ o:
 - (npm script) `"test-commander-js2": "node test_commander.js"`
 - (test_commander.sh) `yarn test-commander-js2 --path 'src/*.dto.ts'`
 
-### conclusion: 1. commander has some issue (cli arg `src/*.dto.ts` becomes the first found file 'src/main.dto.ts' ) when directly being used in npm script (at least in my environment) 2. defining ts-json-schema-generator module (w/o args) as a npm script does not work in npm but work in yarn
+### conclusion: 1. commander has some issue (cli arg `src/*.dto.ts` becomes the first found file 'src/main.dto.ts' ) when args are directly defined in npm script (at least in my environment) 2. defining ts-json-schema-generator module (w/o args) as a npm script does not work in npm but work in yarn
 
 my environment :
 - macOS: 12.4
